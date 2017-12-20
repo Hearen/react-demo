@@ -1,8 +1,8 @@
 module.exports = {
-    entry: "./entry.js",
+    entry: "./src/entry.jsx",
     output: {
-        path: __dirname,
-        filename: "bundle.js"
+        path: __dirname+'/build',
+        filename: "bundle.js",
     },
     module: {
         loaders: [
@@ -21,6 +21,16 @@ module.exports = {
                          'stage-2'
                      ]
                  }
+            },
+            {
+                enforce: "pre",
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: "eslint-loader"
+            },
+            {
+                test: /\.html$/,   
+                loader: 'file-loader?name=[name].[ext]'
             }
         ]
     },

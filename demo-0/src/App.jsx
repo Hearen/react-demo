@@ -13,6 +13,7 @@ export default class App extends React.Component {
       <div>
         <h3>{this.state.message}</h3>
         <button className="btn btn-primary">Press me!</button>
+        <p>This is a passage</p>
       </div>
     );
   }
