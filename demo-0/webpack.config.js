@@ -1,3 +1,4 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: "./src/entry.jsx",
     output: {
@@ -27,16 +28,14 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: "eslint-loader"
-            },
-            {
-                test: /\.html$/,   
-                loader: 'file-loader?name=[name].[ext]'
-            }
-        ]
+            }        ]
     },
     resolve: {
         extensions: ['.js', '.jsx']
     },
+    plugins:[
+        new HtmlWebpackPlugin()
+    ],
     devServer: {
         port: 8003
     }
